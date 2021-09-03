@@ -14,17 +14,7 @@ pipeline {
 			echo "----- Starting ${JOB_BASE_NAME} build -----"
             env
 
-            echo "----- Downloading sub-modules -----"
-            git submodule update --init
-
-            echo "----- Updating Project Module Versions -----"
-
-            mvn -N versions:update-child-modules -DgenerateBackupPoms=false
-
-            echo "----- Building ${JOB_BASE_NAME} -----"
-            
-            mvn clean deploy -U -DdeployAtEnd
-            fi
+            git --version
             '''
          }
 		}
